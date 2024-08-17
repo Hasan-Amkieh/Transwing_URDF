@@ -1,0 +1,689 @@
+<robot name="uav" version="1.0">
+  <joint name="left_elavator" type="revolute">
+    <limit lower="-0.26180" upper="0.26180" effort="0.18000" velocity="10.50000"/>
+    <origin rpy="2.37638 -0.00000 1.57080" xyz="0.08435 0.68209 -0.08224"/>
+    <parent link="base_link"/>
+    <child link="Body5_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="left_flap" type="revolute">
+    <limit lower="-0.26180" upper="0.26180" effort="0.18000" velocity="10.50000"/>
+    <origin rpy="0.00000 0.00000 -3.14159" xyz="-0.01213 -0.08407 -0.81608"/>
+    <parent link="new_link.000.001"/>
+    <child link="left_wing_flap"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="left_wing_first_motor" type="continuous">
+    <limit lower="0" upper="0" effort="0.87000" velocity="0.00000"/>
+    <origin rpy="2.35619 -1.57080 2.35619" xyz="0.01156 0.27348 -0.12973"/>
+    <parent link="new_link.000.001"/>
+    <child link="Body1.051_link.001"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="left_wing_first_transwing" type="revolute">
+    <limit lower="-1.57080" upper="0.00000" effort="0.75000" velocity="314.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.22885 -0.00979 0.00083"/>
+    <parent link="base_link"/>
+    <child link="new_link.000.001.002"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="left_wing_second_motor" type="continuous">
+    <limit lower="0" upper="0" effort="0.87000" velocity="576.00000"/>
+    <origin rpy="2.35619 -1.57080 2.35619" xyz="0.00373 0.27348 -0.60796"/>
+    <parent link="new_link.000.001"/>
+    <child link="Body1.051_link.002"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="left_wing_second_transwing" type="revolute">
+    <limit lower="-1.57080" upper="0.00000" effort="0.75000" velocity="314.00000"/>
+    <origin rpy="1.57080 0.00000 0.00000" xyz="0.01000 0.00000 0.00000"/>
+    <parent link="new_link.000.001.002"/>
+    <child link="new_link.000.001"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="right_elavator" type="revolute">
+    <limit lower="-0.26180" upper="0.26180" effort="0.18000" velocity="10.50000"/>
+    <origin rpy="-2.35619 -0.00000 1.57080" xyz="-0.09293 0.69201 -0.08899"/>
+    <parent link="base_link"/>
+    <child link="Body3.003_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="right_flap" type="revolute">
+    <limit lower="-0.26180" upper="0.26180" effort="0.18000" velocity="10.50000"/>
+    <origin rpy="0.00000 0.00000 -3.14159" xyz="-0.00099 -0.08750 -0.82097"/>
+    <parent link="new_link.000"/>
+    <child link="right_wing_flap"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="right_wing_first_motor" type="continuous">
+    <limit lower="0" upper="0" effort="0.87000" velocity="576.00000"/>
+    <origin rpy="2.35619 -1.57080 2.35619" xyz="-0.01773 0.27006 -0.12950"/>
+    <parent link="new_link.000"/>
+    <child link="Body1.051_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="right_wing_first_transwing" type="revolute">
+    <limit lower="0.00000" upper="1.57080" effort="0.75000" velocity="314.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.22514 -0.01467 0.00426"/>
+    <parent link="base_link"/>
+    <child link="new_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="right_wing_second_motor" type="continuous">
+    <limit lower="0" upper="0" effort="0.87000" velocity="576.00000"/>
+    <origin rpy="2.35619 -1.57080 2.35619" xyz="-0.01773 0.27006 -0.61284"/>
+    <parent link="new_link.000"/>
+    <child link="Body1.051_link.003"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="right_wing_second_transwing" type="revolute">
+    <limit lower="0.00000" upper="1.57080" effort="0.75000" velocity="314.00000"/>
+    <origin rpy="1.57080 0.00000 0.00000" xyz="-0.01000 0.00000 0.00000"/>
+    <parent link="new_link"/>
+    <child link="new_link.000"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <link name="Body1.051_link">
+    <collision name="Body1.051_collision">
+      <origin rpy="1.57750 0.00672 -0.00304" xyz="0.00001 -0.00001 0.00130"/>
+      <geometry>
+        <box size="0.34166 0.02595 0.03361"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00009" ixy="0.00000" ixz="0.00000" iyy="0.00000" iyz="-0.00000" izz="0.00009"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00006 -0.00006 0.00942"/>
+      <mass value="0.01400"/>
+    </inertial>
+    <visual name="Body1.051">
+      <origin rpy="1.57750 0.00672 -0.00304" xyz="-0.00000 -0.00000 0.00000"/>
+      <material name="Oak"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.030.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Body1.051_link.001">
+    <collision name="Body1.050_collision">
+      <origin rpy="-1.57424 -0.00349 -0.01328" xyz="0.00029 -0.00010 0.00128"/>
+      <geometry>
+        <box size="0.35928 0.02442 0.03534"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00009" ixy="0.00000" ixz="-0.00000" iyy="0.00000" iyz="0.00000" izz="0.00009"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00206 -0.00072 0.01333"/>
+      <mass value="0.01400"/>
+    </inertial>
+    <visual name="Body1.050">
+      <origin rpy="-1.57424 -0.00349 -0.01328" xyz="0.00209 -0.00069 0.01859"/>
+      <material name="Oak"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.030.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Body1.051_link.002">
+    <collision name="Body1.047_collision">
+      <origin rpy="1.56735 0.00349 -3.12831" xyz="0.00005 0.00001 0.00125"/>
+      <geometry>
+        <box size="0.31820 0.01863 0.03130"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00009" ixy="0.00000" ixz="-0.00000" iyy="0.00000" iyz="0.00000" izz="0.00009"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00035 0.00004 0.00905"/>
+      <mass value="0.01400"/>
+    </inertial>
+    <visual name="Body1.047">
+      <origin rpy="1.56735 0.00349 -3.12831" xyz="0.00038 0.00007 -0.00036"/>
+      <material name="Oak"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.030.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Body1.051_link.003">
+    <collision name="Body1.052_collision">
+      <origin rpy="-1.56410 -0.00672 -3.13855" xyz="0.00046 0.00015 0.00124"/>
+      <geometry>
+        <box size="0.31228 0.02690 0.03072"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00009" ixy="0.00000" ixz="0.00000" iyy="0.00000" iyz="-0.00000" izz="0.00009"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00341 0.00109 0.01254"/>
+      <mass value="0.01400"/>
+    </inertial>
+    <visual name="Body1.052">
+      <origin rpy="-1.56410 -0.00672 -3.13855" xyz="0.00335 0.00116 0.01833"/>
+      <material name="Oak"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.030.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Body3.003_link">
+    <collision name="Body2.005_collision">
+      <origin rpy="-0.00000 -0.00000 -0.00000" xyz="0.03250 0.00124 0.11900"/>
+      <geometry>
+        <box size="0.03584 0.00597 0.11108"/>
+      </geometry>
+    </collision>
+    <collision name="Body3.003_collision">
+      <origin rpy="-0.00000 -0.00000 -0.00000" xyz="0.02236 0.00047 -0.00125"/>
+      <geometry>
+        <box size="0.05422 0.00915 0.11864"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00064" ixy="0.00000" ixz="-0.00032" iyy="0.00011" iyz="0.00000" izz="0.00064"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.03283 0.00233 0.04624"/>
+      <mass value="0.04800"/>
+    </inertial>
+    <visual name="Body2.005">
+      <origin rpy="-0.00000 -0.00000 -0.00000" xyz="-0.09273 -0.00434 -0.06766"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body2.005.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body3.003">
+      <origin rpy="-0.00000 -0.00000 -0.00000" xyz="-0.09273 -0.00434 -0.06766"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body3.003.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Body5_link">
+    <collision name="Body3_collision">
+      <origin rpy="3.12141 0.00000 -0.00000" xyz="0.05264 0.00185 0.13020"/>
+      <geometry>
+        <box size="0.03520 0.00586 0.10908"/>
+      </geometry>
+    </collision>
+    <collision name="Body5_collision">
+      <origin rpy="3.12141 0.00000 -0.00000" xyz="0.03527 -0.00019 0.00092"/>
+      <geometry>
+        <box size="0.06745 0.01139 0.14761"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00058" ixy="0.00003" ixz="-0.00029" iyy="0.00012" iyz="-0.00004" izz="0.00059"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.04275 0.00013 0.05709"/>
+      <mass value="0.04800"/>
+    </inertial>
+    <visual name="Body3">
+      <origin rpy="3.12141 0.00000 -0.00000" xyz="-0.08281 0.00449 -0.05692"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body3.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body5">
+      <origin rpy="3.12141 0.00000 -0.00000" xyz="-0.08281 0.00449 -0.05692"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body5.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="base_link">
+    <collision name="main_body_collision">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 0.25720 -0.00002"/>
+      <geometry>
+        <box size="0.30537 0.24244 1.19969"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.74378" ixy="0.00000" ixz="-0.00000" iyy="0.03225" iyz="0.04210" izz="0.74664"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.21700 -0.00610"/>
+      <mass value="9.59350"/>
+    </inertial>
+    <visual name="Body6">
+      <origin rpy="-2.35619 -0.00000 1.57080" xyz="-0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body6.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body7">
+      <origin rpy="-2.35619 -0.00000 1.57080" xyz="-0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body7.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body8">
+      <origin rpy="-0.78540 -0.00000 1.57080" xyz="0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body8.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body9">
+      <origin rpy="-0.78540 -0.00000 1.57080" xyz="0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body9.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="main_body">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.34282 0.00000"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.008.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="rib1 (1) (1)">
+      <origin rpy="-0.78540 -0.00000 1.57080" xyz="0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <box size="0.04690 0.00903 0.00440"/>
+      </geometry>
+    </visual>
+    <visual name="rib1 (1) (1).001">
+      <origin rpy="-2.35619 -0.00000 1.57080" xyz="-0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <box size="0.04690 0.00903 0.00440"/>
+      </geometry>
+    </visual>
+    <visual name="rib1 (2)">
+      <origin rpy="-0.78540 -0.00000 1.57080" xyz="0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <box size="0.03224 0.00650 0.00500"/>
+      </geometry>
+    </visual>
+    <visual name="rib1 (2).001">
+      <origin rpy="-2.35619 -0.00000 1.57080" xyz="-0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <box size="0.03224 0.00650 0.00500"/>
+      </geometry>
+    </visual>
+    <visual name="rib1.001">
+      <origin rpy="-2.35619 -0.00000 1.57080" xyz="-0.04815 0.59928 -0.03807"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <box size="0.01721 0.00372 0.00500"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="left_wing_flap">
+    <collision name="aileron.002_collision">
+      <origin rpy="2.88804 -1.55706 -2.88457" xyz="0.00069 0.01837 0.01672"/>
+      <geometry>
+        <box size="0.20342 0.06614 0.01918"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00010" ixy="0.00000" ixz="0.00000" iyy="0.00001" iyz="-0.00000" izz="0.00009"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00027 0.02213 0.01835"/>
+      <mass value="0.04000"/>
+    </inertial>
+    <visual name="Aileron1">
+      <origin rpy="2.88806 -1.55706 -2.88459" xyz="-0.01347 -0.20837 0.90912"/>
+      <material name="Generic"/>
+      <geometry>
+        <box size="0.00700 0.06017 0.01504"/>
+      </geometry>
+    </visual>
+    <visual name="Aileron2">
+      <origin rpy="2.88806 -1.55706 -2.88459" xyz="-0.01347 -0.20837 0.90912"/>
+      <material name="Generic"/>
+      <geometry>
+        <box size="0.00700 0.05517 0.01391"/>
+      </geometry>
+    </visual>
+    <visual name="Aileron3">
+      <origin rpy="2.88806 -1.55706 -2.88459" xyz="-0.01347 -0.20837 0.90912"/>
+      <material name="Generic"/>
+      <geometry>
+        <box size="0.00700 0.05085 0.01292"/>
+      </geometry>
+    </visual>
+    <visual name="aileron.002">
+      <origin rpy="2.88805 -1.55706 -2.88458" xyz="-0.01397 -0.20896 0.90661"/>
+      <material name="Powder Coat - Rough (Red)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/aileron.001.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="new_link">
+    <collision name="Cube.001_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.04055 -0.07987 0.14620"/>
+      <geometry>
+        <box size="0.00694 0.00694 0.00694"/>
+      </geometry>
+    </collision>
+    <visual name="Cube.001">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.04055 -0.07987 0.14620"/>
+      <geometry>
+        <box size="0.00669 0.00669 0.00669"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="new_link.000">
+    <collision name="Body3.002_collision">
+      <origin rpy="-1.13933 -1.56342 -1.99556" xyz="0.00725 -0.02656 -0.43336"/>
+      <geometry>
+        <box size="1.11702 0.43843 0.05438"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.11982" ixy="0.00011" ixz="0.00037" iyy="0.01284" iyz="0.00167" izz="0.10779"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00531 -0.00816 -0.37298"/>
+      <mass value="2.97000"/>
+    </inertial>
+    <visual name="Body1.014">
+      <origin rpy="-0.43143 1.56342 1.14607" xyz="-0.03073 -0.02803 -0.13154"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.009.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.015">
+      <origin rpy="-2.71018 -1.56342 -1.99551" xyz="-0.03026 -0.09803 -0.13201"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.010.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.016">
+      <origin rpy="-0.43143 1.56342 1.14607" xyz="-0.02957 -0.02491 -0.61153"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.009.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.017">
+      <origin rpy="-2.71018 -1.56342 -1.99551" xyz="-0.02910 -0.09490 -0.61200"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.010.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.018">
+      <origin rpy="-2.00217 1.56342 1.14612" xyz="0.01941 0.16719 -0.11308"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.011.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.019">
+      <origin rpy="-2.71018 -1.56342 -1.99551" xyz="-0.00326 -0.09785 -0.13193"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.012.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.020">
+      <origin rpy="2.00223 -1.56342 -1.99553" xyz="0.02215 -0.04945 -0.62854"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.013.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.021">
+      <origin rpy="-2.71018 -1.56342 -1.99551" xyz="-0.00210 -0.09472 -0.61192"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.012.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.022">
+      <origin rpy="-0.43143 1.56342 1.14607" xyz="-0.03284 0.21195 -0.12994"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.014.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.023">
+      <origin rpy="0.43141 -1.56342 -1.99551" xyz="-0.00534 0.21214 -0.12980"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.014.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.024">
+      <origin rpy="-0.43143 1.56342 1.14607" xyz="-0.03118 0.21508 -0.60992"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.014.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.025">
+      <origin rpy="0.43141 -1.56342 -1.99551" xyz="-0.00418 0.21526 -0.60984"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.014.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.027">
+      <origin rpy="-1.13937 -1.56342 -1.99552" xyz="-0.00540 0.11984 0.08953"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.016.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.054">
+      <origin rpy="0.00670 -0.00308 0.00670" xyz="-0.01754 0.24206 -0.12969"/>
+      <material name="Opaque(104,104,120)"/>
+      <geometry>
+        <sphere radius="0.02780"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.056">
+      <origin rpy="0.00670 -0.00308 0.00670" xyz="-0.01638 0.24518 -0.60968"/>
+      <material name="Opaque(104,104,120)"/>
+      <geometry>
+        <sphere radius="0.02780"/>
+      </geometry>
+    </visual>
+    <visual name="Body2.004">
+      <origin rpy="-1.13937 -1.56342 -1.99552" xyz="-0.00540 0.11984 0.08953"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body2.004.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body3.002">
+      <origin rpy="-1.13937 -1.56342 -1.99552" xyz="-0.00540 0.11984 0.08953"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body3.002.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="new_link.000.001">
+    <collision name="Body1.029_collision">
+      <origin rpy="2.88804 -1.55706 0.25702" xyz="-0.01463 -0.02695 -0.43070"/>
+      <geometry>
+        <box size="1.11709 0.44071 0.05657"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.11853" ixy="0.00181" ixz="0.00096" iyy="0.01167" iyz="0.00608" izz="0.10759"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00473 -0.01330 -0.38908"/>
+      <mass value="2.74700"/>
+    </inertial>
+    <visual name="Body1.028">
+      <origin rpy="-1.13934 -1.56342 -1.99556" xyz="0.02396 0.12327 0.09799"/>
+      <material name="Steel - Satin.002"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.032.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.029">
+      <origin rpy="2.88805 -1.55706 0.25701" xyz="0.00183 0.12489 0.09053"/>
+      <material name="Steel - Satin"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.018.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.030">
+      <origin rpy="-1.31724 1.55706 -2.88457" xyz="0.02593 -0.02555 -0.12678"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.019.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.031">
+      <origin rpy="-1.31724 1.55706 -2.88457" xyz="0.01986 -0.02732 -0.60674"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.019.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.032">
+      <origin rpy="-1.82434 -1.55706 0.25701" xyz="0.02617 -0.09555 -0.12654"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.020.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.033">
+      <origin rpy="-1.82434 -1.55706 0.25701" xyz="0.02010 -0.09732 -0.60650"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.020.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.034">
+      <origin rpy="0.25353 1.55706 -2.88459" xyz="-0.02602 0.16933 -0.10977"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.021.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.035">
+      <origin rpy="-1.82434 -1.55706 0.25701" xyz="-0.00082 -0.09564 -0.12618"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.022.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.036">
+      <origin rpy="-1.82434 -1.55706 0.25701" xyz="-0.00690 -0.09742 -0.60614"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.022.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.037">
+      <origin rpy="-0.25355 -1.55706 0.25702" xyz="-0.03178 -0.05256 -0.62297"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.023.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.038">
+      <origin rpy="-1.31724 1.55706 -2.88457" xyz="0.02559 0.21445 -0.12762"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.024.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.039">
+      <origin rpy="1.31725 -1.55706 0.25701" xyz="-0.00191 0.21435 -0.12720"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.024.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.040">
+      <origin rpy="-1.31724 1.55706 -2.88457" xyz="0.01902 0.21267 -0.60757"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.024.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.041">
+      <origin rpy="1.31725 -1.55706 0.25701" xyz="-0.00798 0.21258 -0.60721"/>
+      <material name="Opaque(246,246,243)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body1.024.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.046">
+      <origin rpy="-3.13815 -0.01330 -3.13815" xyz="0.00390 0.24762 -0.60749"/>
+      <material name="Opaque(104,104,120)"/>
+      <geometry>
+        <sphere radius="0.02780"/>
+      </geometry>
+    </visual>
+    <visual name="Body1.049">
+      <origin rpy="-3.13815 -0.01330 -3.13815" xyz="0.01097 0.24940 -0.12755"/>
+      <material name="Opaque(104,104,120)"/>
+      <geometry>
+        <sphere radius="0.02780"/>
+      </geometry>
+    </visual>
+    <visual name="Body2.007">
+      <origin rpy="-1.13934 -1.56342 -1.99556" xyz="0.01663 0.12327 0.09799"/>
+      <material name="Steel - Satin.002"/>
+      <geometry>
+        <mesh filename="../meshes/stl/Body2.007.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="new_link.000.001.002">
+    <collision name="Cube_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.01336 0.05210 0.10848"/>
+      <geometry>
+        <box size="0.01294 0.01294 0.01294"/>
+      </geometry>
+    </collision>
+    <visual name="Cube">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.01336 0.05210 0.10848"/>
+      <geometry>
+        <box size="0.01155 0.01155 0.01155"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="right_wing_flap">
+    <collision name="aileron.001_collision">
+      <origin rpy="-1.13935 -1.56342 1.14605" xyz="-0.00124 0.00336 0.00314"/>
+      <geometry>
+        <box size="0.23324 0.08018 0.02200"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00010" ixy="-0.00000" ixz="-0.00000" iyy="0.00001" iyz="-0.00000" izz="0.00009"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00306 0.01463 0.01983"/>
+      <mass value="0.04000"/>
+    </inertial>
+    <visual name="aileron.001">
+      <origin rpy="-1.13939 -1.56342 1.14609" xyz="0.00440 -0.20734 0.91050"/>
+      <material name="Powder Coat - Rough (Red)"/>
+      <geometry>
+        <mesh filename="../meshes/stl/aileron.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <material name="Generic">
+    <color rgba="1.00000 1.00000 1.00000 1.00000"/>
+  </material>
+  <material name="Oak">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+  </material>
+  <material name="Opaque(104,104,120)">
+    <color rgba="0.40784 0.40784 0.47059 1.00000"/>
+  </material>
+  <material name="Opaque(246,246,243)">
+    <color rgba="0.96471 0.96471 0.95294 1.00000"/>
+  </material>
+  <material name="Powder Coat - Rough (Red)">
+    <color rgba="0.76863 0.20784 0.15294 1.00000"/>
+  </material>
+  <material name="Steel - Satin">
+    <color rgba="0.62745 0.62745 0.62745 1.00000"/>
+  </material>
+  <material name="Steel - Satin.002">
+    <color rgba="0.62745 0.62745 0.62745 1.00000"/>
+  </material>
+</robot>

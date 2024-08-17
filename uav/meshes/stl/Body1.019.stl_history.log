@@ -1,0 +1,3 @@
+Instantiated with filepath=None->None, scale=[0.009999999776482582, 0.009999999776482582, 0.010000000707805157], mesh=<bpy_struct, Mesh("Body1.019") at 0x000001CF580DA088>, meshname=Body1.019, material=None, mesh_orientation=None, {}
+->trying export of <bpy_struct, Mesh("Body1.019") at 0x000001CF580DA088> to C:\Users\HasanAmk\Desktop\UAV\urdf conversion\test1\uav\meshes\stl\Body1.019.stl
+->wrote stl to C:\Users\HasanAmk\Desktop\UAV\urdf conversion\test1\uav\meshes\stl\Body1.019.stl from bpy_types.Mesh
